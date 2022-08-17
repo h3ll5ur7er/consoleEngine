@@ -1,6 +1,6 @@
 #include <math.h>
-#include "vec4f.hpp"
-#include "vec3f.hpp"
+#include "math/vector/vec4f.hpp"
+#include "math/vector/vec3f.hpp"
 
 
 
