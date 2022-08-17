@@ -9,10 +9,10 @@
             "name": "Launch",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/raycaster",
+            "program": "${workspaceFolder}/build/consoleEngine",
             "args": [ ],
             "stopAtEntry": false,
-            // "preLaunchTask": "build",
+            "preLaunchTask": "build",
             "cwd": "${workspaceFolder}/build/",
             "environment": [
                 {
@@ -20,7 +20,7 @@
                     "value": "/usr/lib:/usr/local/lib:$LD_LIBRARY_PATH"
                 }
             ],
-            "externalConsole": false,
+            "externalConsole": true,
             "MIMode": "gdb",
             "setupCommands": [
                 {

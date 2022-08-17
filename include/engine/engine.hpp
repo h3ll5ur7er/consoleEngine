@@ -7,6 +7,7 @@
 #include "engine/color.hpp"
 #include "rendering/data/vertex.hpp"
 #include "rendering/data/triangle.hpp"
+#include "engine/input.hpp"
 
 
 class Camera;

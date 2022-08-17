@@ -82,12 +82,8 @@ Vec4f Mat4f::operator*(const Vec4f& v) const {
         result.v[i] = 0;
         for (int j = 0; j < 4; j++) {
             result.v[i] += m[i][j] * v.v[j];
-            // std::cout << "("<<j << "," << i << "): r[" << i << "] +=" << m[i][j] << " * " << v.v[j] << " ("<<result.v[i]<<")"<< std::endl;
         }
-        // std::cout << "<<<<<<<<<<<<<<" << i << " " << result.v[i] << " " << result.x << " " << result.y << " " << result.z << " " << result.w <<std::endl;
-        // std::cout << "<<<<<<<<<<<<<<" << i << " " << result.v[i] << " " << result.v[0] << " " << result.v[1] << " " << result.v[2] << " " << result.v[3] <<std::endl;
     }
-    // std::cout<<result.toString() <<std::endl;
     result.x = result.v[0];
     result.y = result.v[1];
     result.z = result.v[2];
@@ -98,9 +94,7 @@ Vec4f Mat4f::operator*(const Vec4f& v) const {
 Vec3f Mat4f::operator*(const Vec3f& v) const {
     Vec4f vector = Vec4f(v);
     Vec4f result = (*this) * vector;
-    // std::cout<< result.toString() << std::endl;
     Vec3f v3 = result.xyz();
-    // std::cout<< v3.toString() << std::endl;
     return v3;
 }
 Mat4f Mat4f::operator*(float s) const {

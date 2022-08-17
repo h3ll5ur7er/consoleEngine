@@ -16,6 +16,18 @@ void RaycasterScene::terminate() {
 void RaycasterScene::update(int64_t time, int64_t dt) {
     playerAngle += 0.01;
     playerDirection = Vec2f(std::cos(playerAngle), -std::sin(playerAngle));
+    if(pressed(Key::Up)) {
+        playerPos.y -= 1;
+    }
+    if(pressed(Key::Down)) {
+        playerPos.y += 1;
+    }
+    if(pressed(Key::Left)) {
+        playerPos.x -= 1;
+    }
+    if(pressed(Key::Right)) {
+        playerPos.x += 1;
+    }
 
 }
 
@@ -26,8 +38,8 @@ void RaycasterScene::drawPlayer() {
     engine->line(playerPos * gridSize + gridSize/2, (playerPos * gridSize + gridSize/2) + playerDirection * 5);
 }
 void RaycasterScene::drawMap() {
-    for (size_t y = 0; y < mapSize.y; y++) {
-        for (size_t x = 0; x < mapSize.x; x++) {
+    for (int y = 0; y < mapSize.y; y++) {
+        for (int x = 0; x < mapSize.x; x++) {
             Vec2i pos = {x, y};
             auto p0 = pos * gridSize;
             auto p1 = (pos + Vec2i::one()) * gridSize;

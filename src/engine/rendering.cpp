@@ -27,8 +27,8 @@ void Engine::flip() {
             ss << colorize(screenBuffer[y * WIDTH + x], screenBuffer[(y+1) * WIDTH + x])<< "▄";
             // ss << visualizeDepth(screenBuffer[y * WIDTH + x], screenBuffer[(y+1) * WIDTH + x])<< "▄";
         }
-        std::cout << ss.str() << RESET_COLOR << std::endl;
+        std::cout << ss.str() << RESET_COLOR << "\r\n";
     }
-    std::cout << SET_CURSOR(0, HEIGHT/2 + TOP_OFFSET + BOTTOM_OFFSET) << RESET_COLOR << std::endl;
+    std::cout << SET_CURSOR(0, HEIGHT/2 + TOP_OFFSET + BOTTOM_OFFSET) << RESET_COLOR << "\r\n";
 }
 

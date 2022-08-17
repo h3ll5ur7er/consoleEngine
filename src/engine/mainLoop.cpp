@@ -7,7 +7,7 @@
 bool __running = true;
 
 void Engine::run() {
-
+    enableRawMode();
     auto targetFrameTime = std::chrono::duration_cast<std::chrono::nanoseconds>(std::chrono::milliseconds(1000 / TARGET_FPS));
     init();
     auto appStartTs = std::chrono::high_resolution_clock::now();
@@ -17,6 +17,8 @@ void Engine::run() {
         auto tickStartTs = std::chrono::high_resolution_clock::now();
         auto time = std::chrono::duration_cast<std::chrono::nanoseconds>(tickStartTs - appStartTs).count();
         auto dt = std::chrono::duration_cast<std::chrono::nanoseconds>(lastTickDuration).count();
+        updateKeys();
+        if (pressed(Key::Escape)) { __running = false; }
         update(time, dt);
         auto updateEndTs = std::chrono::high_resolution_clock::now();
         draw(time, dt);
@@ -30,7 +32,6 @@ void Engine::run() {
         auto frameEndTs = std::chrono::high_resolution_clock::now();
         lastFrameDuration = (frameEndTs - tickStartTs);
         logFps(lastFrameDuration.count(), lastTickDuration.count(), (updateEndTs - tickStartTs).count(), (drawEndTs - updateEndTs).count());
-        // __running = false;
     }
 }
 
