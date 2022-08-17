@@ -6,6 +6,7 @@
 #include "engine/constants.hpp"
 #include "engine/color.hpp"
 #include "rendering/data/vertex.hpp"
+#include "rendering/data/triangle.hpp"
 
 
 class Camera;
@@ -59,6 +60,8 @@ public:
     void ftriangle(Vec2i p1, Vec2i p2, Vec2i p3);
     void triangle(Vertex p1, Vertex p2, Vertex p3);
     void ftriangle(Vertex p1, Vertex p2, Vertex p3);
+    void triangle(Triangle tri);
+    void ftriangle(Triangle tri);
 
     // pipeline.cpp
     void setCamera(std::shared_ptr<Camera> camera);
@@ -73,8 +76,6 @@ public:
 private:
     color_t screenBuffer[WIDTH * HEIGHT];
     color_t penColor;
-    std::vector<Vertex> vertices;
-    std::vector<uint16_t> indices;
     std::shared_ptr<Camera> camera;
 
 };

@@ -18,8 +18,6 @@ public:
     void draw();
 
 private:
-    std::vector<Triangle> triangles;
 public:
-    std::vector<Vertex> vertices;
-    std::vector<uint16_t> indices;
+    std::vector<Triangle> triangles;
 };
