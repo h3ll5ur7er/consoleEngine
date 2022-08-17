@@ -146,6 +146,9 @@ Vec3f Vec3f::normalized() const {
 
 Vec3f Vec3f::normalize() {
     float len = length();
+    if (len == 0) {
+        return *this;
+    }
     x /= len;
     y /= len;
     z /= len;

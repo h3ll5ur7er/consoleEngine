@@ -1,5 +1,7 @@
 #include "engine/engine.hpp"
+
 #include "scenes/modelRendererScene.hpp"
+#include "scenes/raycasterScene.hpp"
 
 std::shared_ptr<Scene> currentScene;
 
@@ -13,6 +15,9 @@ void Engine::loadScene(int i){
     }
     switch(i){
         case 0:
+            currentScene = std::make_shared<RaycasterScene>(shared_from_this());
+            break;
+        case 1:
             currentScene = std::make_shared<ModelRendererScene>(shared_from_this());
             break;
         default:

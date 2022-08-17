@@ -364,7 +364,6 @@ void Engine::ftriangle(Vertex p1, Vertex p2, Vertex p3) {
         if(dx > 1) {
             step = 1.0f / (dx-1);
         }
-        // std::cout << "step: " << step << std::endl;
 
         for (float x = 0; x <= dx; x++) {
             auto depth = lerp(v0.depth, v1.depth, step * x);
@@ -372,9 +371,14 @@ void Engine::ftriangle(Vertex p1, Vertex p2, Vertex p3) {
             auto normal = Vec3f::lerp(v0.normal, v1.normal, step * x);
             auto texcoord = Vec2f::lerp(v0.texcoord, v1.texcoord, step * x);
             pen(color);
-            // std::cout<<depth<< std::endl;
             pixel(minX + x, v0.position.y, depth);
         }
     }
 
+}
+void Engine::ftriangle(Triangle tri) {
+    ftriangle(tri.v0, tri.v1, tri.v2);
+}
+void Engine::triangle(Triangle tri) {
+    triangle(tri.v0, tri.v1, tri.v2);
 }

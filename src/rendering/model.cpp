@@ -9,9 +9,9 @@
 
 
 
-Model::Model():triangles(), vertices(), indices() {}
-Model::Model(const Model& other):triangles(other.triangles), vertices(other.vertices), indices(other.indices) {}
-Model::Model(std::vector<Vertex> vertices, std::vector<uint16_t> indices):triangles(), vertices(vertices), indices(indices) {
+Model::Model():triangles() {}
+Model::Model(const Model& other):triangles(other.triangles) {}
+Model::Model(std::vector<Vertex> vertices, std::vector<uint16_t> indices):triangles() {
     for (size_t i = 0; i < indices.size(); i += 3) {
         triangles.push_back(Triangle(vertices[indices[i]], vertices[indices[i + 1]], vertices[indices[i + 2]]));
     }
