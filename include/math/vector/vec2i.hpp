@@ -6,8 +6,8 @@ struct Vec2f;
 typedef struct Vec2i {
 public:
     int x, y;
-    Vec2i();
-    Vec2i(int x, int y);
+    // Vec2i();
+    // Vec2i(int x, int y);
     
     int operator[](int i) const;
     operator Vec2f() const;

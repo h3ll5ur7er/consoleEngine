@@ -43,4 +43,11 @@ public:
     Vec2f rotateAround(float angle, const Vec2f& center) const;
     std::string toString() const;
     static Vec2f lerp(const Vec2f& a, const Vec2f& b, float t);
+
+    static Vec2f zero();
+    static Vec2f one();
+    static Vec2f up();
+    static Vec2f down();
+    static Vec2f left();
+    static Vec2f right();
 } Vec2f;

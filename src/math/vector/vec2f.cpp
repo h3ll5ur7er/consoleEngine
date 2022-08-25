@@ -32,7 +32,7 @@ Vec2f& Vec2f::operator=(const Vec2f& other) {
 }
 
 Vec2f::operator Vec2i() const {
-    return Vec2i((int)x, (int)y);
+    return {(int)x, (int)y};
 }
 
 Vec2f Vec2f::operator+(const Vec2f& other) const {
@@ -168,4 +168,23 @@ std::string Vec2f::toString() const {
 
 Vec2f Vec2f::lerp(const Vec2f& a, const Vec2f& b, float t) {
     return a + (b - a) * t;
+}
+
+Vec2f Vec2f::zero() {
+    return {0, 0};
+}
+Vec2f Vec2f::one() {
+    return {1, 1};
+}
+Vec2f Vec2f::up() {
+    return {0, -1};
+}
+Vec2f Vec2f::down() {
+    return {0, 1};
+}
+Vec2f Vec2f::left() {
+    return {-1, 0};
+}
+Vec2f Vec2f::right() {
+    return {1, 0};
 }
